@@ -60,8 +60,7 @@ fi
 dwmblocks &
 
 # keyboard
-setxkbmap de &
-setxkbmap -option caps:none &
+setxkbmap de -option caps:none &
 
 # dwm
 exec dwm
