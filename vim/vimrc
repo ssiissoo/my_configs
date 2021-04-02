@@ -1,0 +1,98 @@
+let mapleader=" "
+syntax on
+set number
+set wrap linebreak
+
+function! DoCopy()
+	exe ':w'
+	exe ':!./% | xclip -sel clipbard'
+endfunction
+
+function! ToggleColorColumn()
+	if &colorcolumn
+		set colorcolumn=
+	else
+		set colorcolumn=79
+	endif
+endfunction
+
+function! CompileDoc()
+	let ext = expand('%:e')
+	:w
+	if ext =~ 'md'
+		:! pandoc % -o %:r.pdf
+	elseif ext =~ 'tex'
+		:! pdflatex %
+	else
+		echom 'not a tex or md file'
+	endif
+endfunction
+
+"########################################
+"abbreviations
+"########################################
+ab iptmpl import matplotlib.pyplot as plt
+
+ab iptnp import numpy as np
+
+ab iptsp from sympy import *
+
+ab iptspp import sympy as sp
+
+ab xpy #!/bin/python3
+
+ab xbs #!/bin/bash
+
+ab xsh #!/bin/sh
+
+"########################################
+"insert mode remap
+"########################################
+
+
+"########################################
+"normal mode remap
+"########################################
+
+"execute current 
+nnoremap <leader>x :w<Enter>:!./%<Enter>
+
+"execute and copy output to clipboard
+nnoremap <leader>cp :call DoCopy()<CR>
+
+"make file executable; you will have to press O or enter afterwards
+nnoremap <leader>cm :w<Enter>:e<Enter>:!sudo chmod +x %<Enter>
+
+"compile latex file
+nnoremap <leader>ll :call CompileDoc()<cr>
+
+"turn on spellcheck (us english)
+nnoremap <leader>s :set spell spelllang=en_us<Enter>
+
+"turn on spellcheck (german)
+nnoremap <leader>g :set spell spelllang=de<Enter>
+
+"go to next misspelled word
+nnoremap <leader><leader>s ]s
+
+"see recommended spelling
+nnoremap <leader><leader>z z=
+
+"clear spelling highlighting
+nnoremap <leader><leader>cs :hi clear SpellBad<Enter>
+
+"turn on colorcolumn
+nnoremap <leader>cc :call ToggleColorColumn()<cr>
+
+"########################################
+"syntax highlighting
+"########################################
+
+hi Comment ctermfg=LightBlue
+hi Constant ctermfg=Green
+hi Identifier ctermfg=LightMagenta
+hi Statement ctermfg=Yellow
+hi MatchParen ctermbg=DarkBlue
+hi Visual ctermbg=DarkGray
+hi SpellBad ctermbg=DarkRed
+hi ColorColumn ctermbg=DarkGrey
