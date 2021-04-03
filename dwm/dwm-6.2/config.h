@@ -33,8 +33,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Pentablet_Driver", NULL,     NULL,           1 << 8,    0,          0},
+	/*{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },*/
 };
 
 /* layout(s) */
@@ -63,10 +64,20 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "zsh" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("mpc toggle; kill -47 $(pidof dwmblocks)") },
+	{ MODKEY,			XK_plus,   spawn,	   SHCMD("mpc volume +5; kill -47 $(pidof dwmblocks)") },
+	{ MODKEY,			XK_minus,  spawn,	   SHCMD("mpc volume -5; kill -47 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_plus,   spawn,	   SHCMD("mpc next; kill -47 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_minus,  spawn,	   SHCMD("mpc prev; kill -47 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_b,  	   spawn,	   SHCMD("/home/s/my_scripts/bluetoothctlctl") },
+	{ MODKEY|ShiftMask,		XK_u,  	   spawn,	   SHCMD("/home/s/my_scripts/dmenu_menu.py uni /home/s/my_private_bits/uni.json") },
+	{ MODKEY|ShiftMask,		XK_a,  	   spawn,	   SHCMD("/home/s/my_scripts/audio") },
+	{ MODKEY|ShiftMask,		XK_e,  	   spawn,	   SHCMD("/home/s/my_scripts/dmenu_menu.py exit /home/s/my_private_bits/exit.json") },
+	{ MODKEY|ShiftMask,		XK_i,  	   spawn,	   SHCMD("qutebrowser") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
