@@ -65,6 +65,9 @@ setxkbmap de -option caps:none &
 # notification daemon
 dunst &
 
+# graphics tablet driver
+/home/s/my_scripts/xp-pen_driver &
+
 # dwm
 exec dwm
 
