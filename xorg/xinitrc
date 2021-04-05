@@ -62,6 +62,9 @@ dwmblocks &
 # keyboard
 setxkbmap de -option caps:none &
 
+# laptop keys
+xbindkeys &
+
 # notification daemon
 dunst &
 

@@ -85,10 +85,6 @@
 "pactl set-source-mute @DEFAULT_SOURCE@ toggle; kill -45 $(pidof dwmblocks)"
   XF86AudioMicMute
 
-# shutdown
-#"shutdown now"
-#  mod4+shift+e
-
 ##################################
 # End of xbindkeys configuration #
 ##################################
