@@ -78,6 +78,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_a,  	   spawn,	   SHCMD("/home/s/my_scripts/audio") },
 	{ MODKEY|ShiftMask,		XK_e,  	   spawn,	   SHCMD("/home/s/my_scripts/dmenu_menu.py exit /home/s/my_private_bits/exit.json") },
 	{ MODKEY|ShiftMask,		XK_i,  	   spawn,	   SHCMD("qutebrowser") },
+	{ MODKEY|ShiftMask,		XK_v,  	   spawn,	   SHCMD("mpv \"$(xclip -o -sel clip)\"") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
