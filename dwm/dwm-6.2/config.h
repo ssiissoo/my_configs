@@ -68,11 +68,11 @@ static const char *termcmd[]  = { "st", "zsh" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("mpc toggle; kill -47 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_plus,   spawn,	   SHCMD("mpc volume +5; kill -47 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_minus,  spawn,	   SHCMD("mpc volume -5; kill -47 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_plus,   spawn,	   SHCMD("mpc next; kill -47 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		XK_minus,  spawn,	   SHCMD("mpc prev; kill -47 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("mpc toggle; kill -46 $(pidof dwmblocks)") },
+	{ MODKEY,			XK_n,      spawn,	   SHCMD("mpc volume +10; kill -46 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_n,  	   spawn,	   SHCMD("mpc volume -10; kill -46 $(pidof dwmblocks)") },
+	{ MODKEY,			0x3c,	   spawn,	   SHCMD("/home/s/my_scripts/mpd_skip; kill -46 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		0x3c,  	   spawn,	   SHCMD("/home/s/my_scripts/mpd_prev; kill -46 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_b,  	   spawn,	   SHCMD("/home/s/my_scripts/bluetoothctlctl") },
 	{ MODKEY|ShiftMask,		XK_u,  	   spawn,	   SHCMD("/home/s/my_scripts/dmenu_menu.py uni /home/s/my_private_bits/uni.json") },
 	{ MODKEY|ShiftMask,		XK_a,  	   spawn,	   SHCMD("/home/s/my_scripts/audio") },

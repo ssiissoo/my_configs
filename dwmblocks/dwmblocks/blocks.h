@@ -1,6 +1,7 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/ /*Command*/ /*Update Interval*/ /*Update Signal*/
+	{"", "~/my_scripts/mpd_block", 10, 12},
 	{"", "~/my_scripts/mic", 0, 11},
 	{"", "~/my_scripts/vol", 0, 10},
 	{"", "~/my_scripts/bat", 10, 0},
