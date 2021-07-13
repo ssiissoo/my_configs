@@ -68,6 +68,9 @@ static const char *termcmd[]  = { "st", "zsh" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("scrot --select /home/s/screenshot/$(date +'\%Y-\%m-\%d_\%H_\%M_\%S').png") },
+	{ MODKEY,			XK_s,      spawn,	   SHCMD("scrot /home/s/screenshot/$(date +'\%Y-\%m-\%d_\%H_\%M_\%S').png") },
+	{ MODKEY,			XK_c,      spawn,	   SHCMD("scrot --select /home/s/screenshot/$(date +'\%Y-\%m-\%d_\%H_\%M_\%S').png && xclip -sel clip -t image/png /home/s/screenshot/$(ls /home/s/screenshot | awk 'END{print}') && xclip -sel primary -t image/png /home/s/screenshot/$(ls /home/s/screenshot | awk 'END{print}')") },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("mpc toggle; kill -46 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_n,      spawn,	   SHCMD("mpc volume +10; kill -46 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_n,  	   spawn,	   SHCMD("mpc volume -10; kill -46 $(pidof dwmblocks)") },
